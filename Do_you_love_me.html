@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<img src=""id="anh"/>
+<h1 style="margin-left: 500px;margin-top:200px;">Do you love me?</h1>
+<input type="button" id="chay" style="position:absolute;left: 550px;" onmouseover="chuyen()" value="No"/>
+<input type="button"style="margin-left: 500px" onclick="hien()"value="Yes"/>
+<script>
+    function chuyen() {
+        let run = document.getElementById("chay");
+        random1 = Math.floor(Math.random() *window.innerHeight);
+        random2 = Math.floor(Math.random() *window.innerWidth);
+        run.style.top = parseInt(random1)+'px';
+        run.style.left= parseInt(random2)+'px';
+    }
+    function hien() {
+        let anh1=document.getElementById("anh");
+        anh1.src="anh/tim.jpg";
+        anh1.height="580";
+        anh1.width="1260";
+        console.log(anh1);
+    }
+    </script>
+</body>
+</html>
