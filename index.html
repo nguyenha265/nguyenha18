@@ -4,25 +4,110 @@
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
-<body>
-<img src=""id="anh"/>
-<h1 style="margin-left: 800px;margin-top:300px;">Do you love me?</h1>
-<input type="button" id="chay" style="position:absolute;left: 850px;" onmouseover="chuyen()" value="No"/>
-<input type="button"style="margin-left: 800px" onclick="hien()"value="Yes"/>
-<script>
-    function chuyen() {
-        let run = document.getElementById("chay");
-        random1 = Math.floor(Math.random() *window.innerHeight);
-        random2 = Math.floor(Math.random() *window.innerWidth);
-        run.style.top = parseInt(random1)+'px';
-        run.style.left= parseInt(random2)+'px';
+<style>
+    .full-body {
+        width: 98vw;
+        height: 96vh;
     }
-    function hien() {
-        let anh1=document.getElementById("anh");
-        anh1.src="anh/tim.jpg";
-       anh1.height=window.innerHeight;
-        anh1.width=window.innerWidth;
-        console.log(anh1);
+    .center {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+        z-index: 1;
+    }
+    .background {
+        background-image: url("anh/background-8-3.jpg");
+        background-size: cover;
+    }
+    .button {
+        background-image: linear-gradient(135deg, #008aff, #86d472);
+        border-radius: 6px;
+        box-sizing: border-box;
+        color: #ffffff;
+        display: block;
+        height: 45px;
+        font-size: 1.4em;
+        font-weight: 600;
+        padding: 4px;
+        margin: 4px;
+        position: relative;
+        text-decoration: none;
+        width: 5em;
+        z-index: 2;
+    }
+    .button:hover {
+        color: #fff;
+    }
+    .button .btn1 {
+        align-items: center;
+        background: #0e0e10;
+        border-radius: 6px;
+        display: flex;
+        justify-content: center;
+        height: 100%;
+        transition: background 0.5s ease;
+        width: 100%;
+    }
+    .button:hover .btn1 {
+        background: transparent;
+    }
+    @-webkit-keyframes my {
+        0% { color: #0a4df8; }
+        50% { color: #43c7c7;  }
+        100% { color: #0a4df8;  }
+    }
+    @-moz-keyframes my {
+        0% { color: #0a4df8;  }
+        50% { color: #43c7c7;  }
+        100% { color: #0a4df8;  }
+    }
+    @-o-keyframes my {
+        0% { color: #0a4df8; }
+        50% { color: #43c7c7; }
+        100% { color: #0a4df8;  }
+    }
+    @keyframes my {
+        0% { color: #0a4df8;  }
+        50% { color: #43c7c7;  }
+        100% { color: #0a4df8;  }
+    }
+    .text {
+        font-size:60px;
+        font-weight:bold;
+        -webkit-animation: my 700ms infinite;
+        -moz-animation: my 700ms infinite;
+        -o-animation: my 700ms infinite;
+        animation: my 700ms infinite;
+    }
+</style>
+<body>
+<div class="background">
+    <img id="image"/>
+    <div id="content" class="center full-body">
+        <h1 class="text">Happy Women's Day</h1>
+        <div style="display: flex">
+            <input class="button" type="button" onclick="showImage()"value="Yes"/>
+            <input class="button" type="button" id="no" style="position: relative" onclick="runDom()" onmouseover="runDom()" value="No"/>
+        </div>
+    </div>
+</div>
+<script>
+    function runDom() {
+        let run = document.getElementById("no");
+        let random1 = Math.floor(Math.random() *window.innerHeight);
+        let random2 = Math.floor(Math.random() *window.innerWidth);
+        run.style.top = parseInt(random1 / 2.5)+'px';
+        run.style.left= parseInt(random2 / 2.5)+'px';
+        console.log(run)
+    }
+    function showImage() {
+        document.getElementById("content").style.display = "none"
+        let image=document.getElementById("image");
+        image.src="anh/hoa.jpg";
+        image.height=window.innerHeight;
+        image.width=window.innerWidth;
+        image.style.display = "block";
     }
     </script>
 </body>
